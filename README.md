@@ -30,7 +30,7 @@
  ```csharp 
     public interface IPersonRepository : IRepository<Person>
     {
-        IEnumberable<Person> GetPersonsOlderThen(int years)
+        IEnumerable<Person> GetPersonsOlderThen(int years)
     }
 ```
  ### Repository 
@@ -39,7 +39,7 @@ public class PersonRepository : Repository<Person>, IImageRepository
     {
         public ImageRepository(DbContext context) : base(context){}
 
-        public IEnumerable<Image> GetPersonsOlderThen(int years)
+        public IEnumerable<Person> GetPersonsOlderThen(int years)
           => Context<Context>
           .Persons
           .Where(person => person.Birthday.Year > DateTime.Now.Year - years)
