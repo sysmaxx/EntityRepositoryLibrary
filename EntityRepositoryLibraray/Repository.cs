@@ -14,7 +14,7 @@ namespace EntityRepositoryLibrary
     /// <typeparam name="TEntity">The type of the elements of source entity model</typeparam>
     public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected readonly DbContext _context;
+        private readonly DbContext _context;
 
         /// <summary>
         /// Create an instance of repository
@@ -26,6 +26,11 @@ namespace EntityRepositoryLibrary
         }
 
         #region Synchronous
+        /// <summary>
+        /// Return the DbContaxt
+        /// </summary>
+        /// <typeparam name="TContext"></typeparam>
+        /// <returns>Casted DbContext</returns>
         public TContext Context<TContext>() where TContext : DbContext => _context as TContext;
 
         /// <summary>
@@ -118,7 +123,7 @@ namespace EntityRepositoryLibrary
         /// <summary>
         /// Remove a sequenz entities from Entitys tracking, it will be deleted if DbContext.SaveChanges is called
         /// </summary>
-        /// <param name="entity">Entities to remove</param>
+        /// <param name="entities">Entities to remove</param>
         public void RemoveRange(IEnumerable<TEntity> entities)
             => _context.Set<TEntity>().RemoveRange(entities);
 
@@ -216,7 +221,7 @@ namespace EntityRepositoryLibrary
         ///  Returns the first element of a sequence that satisfies a specified condition
         /// </summary>
         /// <param name="predicate">Predicate Function</param>
-        /// 
+        /// <param name="cancellationToken"></param>
         /// <returns>First element that match the predicate function or default(TSource) if no such element is found</returns>
         /// <exception cref="ArgumentNullException"></exception>
         public async Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
@@ -249,7 +254,7 @@ namespace EntityRepositoryLibrary
         /// <summary>
         /// Remove a sequenz entities from Entitys tracking, it will be deleted if DbContext.SaveChanges is called
         /// </summary>
-        /// <param name="entity">Entities to remove</param>
+        /// <param name="entities">Entities to remove</param>
         /// <param name="cancellationToken"></param>
         public async Task RemoveRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
             => await Task.Run(() => _context.Set<TEntity>().RemoveRange(entities), cancellationToken).ConfigureAwait(false);

@@ -14,6 +14,13 @@
     <PackageTags>Entity Core Repository Pattern</PackageTags>
     <PackageProjectUrl>https://github.com/sysmaxx/EntityRepositoryLibrary</PackageProjectUrl>
     <Copyright>2021 Max Herkt</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.3</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\PrivateRepositories\EntityRepositoryLibrary\EntityRepositoryLibraray\EntityRepositoryLibrary.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
