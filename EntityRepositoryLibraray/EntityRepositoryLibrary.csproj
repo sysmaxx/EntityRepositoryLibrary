@@ -8,7 +8,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Repository Pattern using Enity Framework Core</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryUrl>https://github.com/sysmaxx/EntityRepositoryLibrary</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>Entity Core Repository Pattern</PackageTags>

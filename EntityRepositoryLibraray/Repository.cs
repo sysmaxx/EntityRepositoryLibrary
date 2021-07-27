@@ -263,7 +263,7 @@ namespace EntityRepositoryLibrary
         /// <returns>Paged sequenz</returns>
         /// <exception cref="ArgumentNullException"></exception>
         public async Task<IEnumerable<TEntity>> GetPageAsync(int pageNumber, int pageSize, CancellationToken cancellationToken = default)
-            => await _context.Set<TEntity>().Skip(pageNumber * pageSize).Take(pageSize).ToListAsync().ConfigureAwait(false);
+            => await _context.Set<TEntity>().Skip(pageNumber * pageSize).Take(pageSize).ToListAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
         /// Get a paged sequence that satisfies a specified condition
@@ -277,7 +277,10 @@ namespace EntityRepositoryLibrary
         public async Task<IEnumerable<TEntity>> GetPageAsync(Expression<Func<TEntity, bool>> predicate, int pageNumber, int pageSize, CancellationToken cancellationToken = default)
             => await _context.Set<TEntity>()
             .Where(predicate)
-            .Skip(pageNumber * pageSize).Take(pageSize).ToListAsync().ConfigureAwait(false);
+            .Skip(pageNumber * pageSize)
+            .Take(pageSize)
+            .ToListAsync(cancellationToken)
+            .ConfigureAwait(false);
 
         #endregion
     }
