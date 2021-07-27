@@ -35,7 +35,7 @@
 ```
  ### Repository 
  ```csharp 
-public class PersonRepository : Repository<Person>, IImageRepository
+public class PersonRepository : Repository<Person>, IPersonRepository
     {
         public ImageRepository(DbContext context) : base(context){}
 
