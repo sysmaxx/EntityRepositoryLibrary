@@ -14,6 +14,8 @@ namespace EntityRepositoryLibrary
 
         TEntity Single(Expression<Func<TEntity, bool>> predicate);
         TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate);
+
+        TEntity First(Expression<Func<TEntity, bool>> predicate);
         TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate);
 
         void Add(TEntity entity);
