@@ -51,7 +51,7 @@ public class PersonRepository : Repository<Person>, IImageRepository
  ```csharp 
  public class UnitOfWork : IUnitOfWork
     {
-        private readonly PersonContext _context;
+        private readonly Context _context;
         public IPersonRepository Persons { get; private set; }
         
         public UnitOfWork(Context context)
