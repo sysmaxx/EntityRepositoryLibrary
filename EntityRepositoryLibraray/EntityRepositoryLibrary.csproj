@@ -2,10 +2,29 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Authors>Max Herkt</Authors>
+    <Company />
+    <Product />
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Repository Pattern using Enity Framework Core</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/sysmaxx/EntityRepositoryLibrary</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>Entity Core Repository Pattern</PackageTags>
+    <PackageProjectUrl>https://github.com/sysmaxx/EntityRepositoryLibrary</PackageProjectUrl>
+    <Copyright>2021 Max Herkt</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
