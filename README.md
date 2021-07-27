@@ -8,7 +8,7 @@
 - Use Context in inherited Repositories
 - Supports pageable requests
 - Fully sync and async functions
-- IEnumerable returns instad of IQueryable from Baserepository-Functions
+- Returns IEnumerable instad of IQueryable from Baserepository-Functions
 
 # Dependencies
     net5.0
