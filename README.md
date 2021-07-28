@@ -40,7 +40,7 @@ public class PersonRepository : Repository<Person>, IPersonRepository
         public PersonRepository(DbContext context) : base(context){}
 
         public IEnumerable<Person> GetPersonsOlderThen(int years)
-          => Context<Context>
+          => Context<Context>()
           .Persons
           .Where(person => person.Birthday.Year > DateTime.Now.Year - years)
           .ToList();
