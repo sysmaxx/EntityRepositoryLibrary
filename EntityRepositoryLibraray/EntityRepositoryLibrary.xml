@@ -1,0 +1,404 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EntityRepositoryLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:EntityRepositoryLibrary.IPageableRepository`1">
+            <summary>
+            Provides pageable requests
+            </summary>
+            <typeparam name="TEntity">Databasemodel</typeparam>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IPageableRepository`1.GetPage(System.Int32,System.Int32)">
+            <summary>
+            Get a paged sequenz of entities
+            </summary>
+            <param name="pageNumber">Current Pagenumber</param>
+            <param name="pageSize">Pagesize</param>
+            <returns>Paged sequenz</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IPageableRepository`1.GetPageAsync(System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Get a paged sequenz of entities async
+            </summary>
+            <param name="pageNumber">Current Pagenumber</param>
+            <param name="pageSize">Pagesize</param>
+            <param name="cancellationToken"></param>
+            <returns>Paged sequenz</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IPageableRepository`1.GetPage(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.Int32)">
+            <summary>
+            Get a paged sequence that satisfies a specified condition
+            </summary>
+            <param name="predicate">Predicate Function</param>
+            <param name="pageNumber">Current Pagenumber</param>
+            <param name="pageSize">Pagesize</param>
+            <returns>Paged, filtered sequenz</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IPageableRepository`1.GetPageAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Get a paged sequence async that satisfies a specified condition
+            </summary>
+            <param name="predicate">Predicate Function</param>
+            <param name="pageNumber">Current Pagenumber</param>
+            <param name="pageSize">Pagesize</param>
+            <param name="cancellationToken"></param>
+            <returns>Paged, filtered sequenz</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+                    /// <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:EntityRepositoryLibrary.IRepository`1">
+            <summary>
+            Represents the base-repository
+            </summary>
+            <typeparam name="TEntity">Databasemodel</typeparam>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepository`1.Context``1">
+            <summary>
+            Return the DbContaxt
+            </summary>
+            <typeparam name="TContext"></typeparam>
+            <returns>Casted DbContext</returns>
+        </member>
+        <member name="T:EntityRepositoryLibrary.IRepositoryAsync`1">
+            <summary>
+            Represents async base functions for repositories 
+            </summary>
+            <typeparam name="TEntity">Modeltype</typeparam>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositoryAsync`1.GetAsync(System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Find an Entity with given Primary Key
+            </summary>
+            <param name="id">Primary Key Object</param>
+            <param name="cancellationToken"></param>
+            <returns>The entity found or null</returns>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositoryAsync`1.GetAllAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get all entities
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns>All entites</returns>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositoryAsync`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <summary>
+            Filters a sequence of values based on a predicate
+            </summary>
+            <param name="predicate">Predicate Function</param>
+            <param name="cancellationToken"></param>
+            <returns>All entites based on the predicate</returns>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositoryAsync`1.SingleAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <summary>
+             Returns the only element of a sequence that satisfies a specified condition,
+             and throws an exception if more than one such element exists.
+            </summary>
+            <param name="predicate">Predicate Function</param>
+            <param name="cancellationToken"></param>
+            <returns>Single element that match the predicate function</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositoryAsync`1.SingleOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <summary>
+             Returns the only element of a sequence that satisfies a specified condition,
+             and throws an exception if more than one such element exists.
+            </summary>
+            <param name="predicate">Predicate Function</param>
+            <param name="cancellationToken"></param>
+            <returns>Single element that match the predicate function or default(TSource) if no such element is found</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositoryAsync`1.FirstAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <summary>
+             Returns the first element of a sequence that satisfies a specified condition,
+            </summary>
+            <param name="predicate">Predicate Function</param>
+            <param name="cancellationToken"></param>
+            <returns>Single element that match the predicate function</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositoryAsync`1.FirstOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <summary>
+             Returns the first element of a sequence that satisfies a specified condition
+            </summary>
+            <param name="predicate">Predicate Function</param>
+            <param name="cancellationToken"></param>
+            <returns>First element that match the predicate function or default(TSource) if no such element is found</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositoryAsync`1.AddAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Add an entity to Entitys tracking, it will be inserted to Database if DbContext.SaveChanges is called 
+            </summary>
+            <param name="entity">Entity to add to</param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositoryAsync`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <summary>
+            Add a sequenz of entities to Entitys tracking, they will be inserted to Database if DbContext.SaveChanges is called 
+            </summary>
+            <param name="entities">Entities to add</param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositoryAsync`1.RemoveAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Remove an entity from Entitys tracking, it will be deleted if DbContext.SaveChanges is called
+            </summary>
+            <param name="entity">Entity to remove</param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositoryAsync`1.RemoveRangeAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <summary>
+            Remove a sequenz entities from Entitys tracking, it will be deleted if DbContext.SaveChanges is called
+            </summary>
+            <param name="entities">Entities to remove</param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:EntityRepositoryLibrary.IRepositorySync`1">
+            <summary>
+            Represents sync base functions for repositories 
+            </summary>
+            <typeparam name="TEntity">Modeltype</typeparam>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositorySync`1.Get(System.Object)">
+            <summary>
+            Find an Entity with given Primary Key
+            </summary>
+            <param name="id">Primary Key Object</param>
+            <returns>The entity found or null</returns>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositorySync`1.GetAll">
+            <summary>
+            Get all entities
+            </summary>
+            <returns>All entites</returns>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositorySync`1.Find(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Filters a sequence of values based on a predicate
+            </summary>
+            <param name="predicate">Predicate Function</param>
+            <returns>All entites based on the predicate</returns>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositorySync`1.Single(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+             Returns the only element of a sequence that satisfies a specified condition,
+             and throws an exception if more than one such element exists.
+            </summary>
+            <param name="predicate">Predicate Function</param>
+            <returns>Single element that match the predicate function</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositorySync`1.SingleOrDefault(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+             Returns the only element of a sequence that satisfies a specified condition,
+             and throws an exception if more than one such element exists.
+            </summary>
+            <param name="predicate">Predicate Function</param>
+            <returns>Single element that match the predicate function or default(TSource) if no such element is found</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositorySync`1.First(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+             Returns the first element of a sequence that satisfies a specified condition,
+            </summary>
+            <param name="predicate">Predicate Function</param>
+            <returns>Single element that match the predicate function</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositorySync`1.FirstOrDefault(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+             Returns the first element of a sequence that satisfies a specified condition
+            </summary>
+            <param name="predicate">Predicate Function</param>
+            <returns>First element that match the predicate function or default(TSource) if no such element is found</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositorySync`1.Add(`0)">
+            <summary>
+            Add an entity to Entitys tracking, it will be inserted to Database if DbContext.SaveChanges is called 
+            </summary>
+            <param name="entity">Entity to add to</param>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositorySync`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Add a sequenz of entities to Entitys tracking, they will be inserted to Database if DbContext.SaveChanges is called 
+            </summary>
+            <param name="entities">Entities to add</param>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositorySync`1.Remove(`0)">
+            <summary>
+            Remove an entity from Entitys tracking, it will be deleted if DbContext.SaveChanges is called
+            </summary>
+            <param name="entity">Entity to remove</param>
+        </member>
+        <member name="M:EntityRepositoryLibrary.IRepositorySync`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Remove a sequenz entities from Entitys tracking, it will be deleted if DbContext.SaveChanges is called
+            </summary>
+            <param name="entities">Entities to remove</param>
+        </member>
+        <member name="T:EntityRepositoryLibrary.Models.IPage`1">
+            <summary>
+            Response of pageable-request
+            </summary>
+            <typeparam name="TEntity">Modeltype</typeparam>
+        </member>
+        <member name="P:EntityRepositoryLibrary.Models.IPage`1.Items">
+            <summary>
+            Selected items in this page
+            </summary>
+        </member>
+        <member name="P:EntityRepositoryLibrary.Models.IPage`1.ItemsInPage">
+            <summary>
+            Item count in page
+            </summary>
+        </member>
+        <member name="P:EntityRepositoryLibrary.Models.IPage`1.TotalItems">
+            <summary>
+            Total count of all items 
+            </summary>
+            
+        </member>
+        <member name="P:EntityRepositoryLibrary.Models.IPage`1.CurrentPage">
+            <summary>
+            Current page
+            </summary>
+        </member>
+        <member name="P:EntityRepositoryLibrary.Models.IPage`1.TotalPages">
+            <summary>
+            Total number of pages
+            </summary>
+        </member>
+        <member name="P:EntityRepositoryLibrary.Models.IPage`1.PageSize">
+            <summary>
+            Selected page size
+            </summary>
+        </member>
+        <member name="T:EntityRepositoryLibrary.Models.Page`1">
+            <inheritdoc/>
+        </member>
+        <member name="P:EntityRepositoryLibrary.Models.Page`1.Items">
+            <inheritdoc/>
+        </member>
+        <member name="P:EntityRepositoryLibrary.Models.Page`1.ItemsInPage">
+            <inheritdoc/>
+        </member>
+        <member name="P:EntityRepositoryLibrary.Models.Page`1.TotalItems">
+            <inheritdoc/>
+        </member>
+        <member name="P:EntityRepositoryLibrary.Models.Page`1.CurrentPage">
+            <inheritdoc/>
+        </member>
+        <member name="P:EntityRepositoryLibrary.Models.Page`1.TotalPages">
+            <inheritdoc/>
+        </member>
+        <member name="P:EntityRepositoryLibrary.Models.Page`1.PageSize">
+            <inheritdoc/>
+        </member>
+        <member name="T:EntityRepositoryLibrary.Repository`1">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Create an instance of repository
+            </summary>
+            <param name="context">Entity DbContext</param>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.Context``1">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.Get(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.GetAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.Find(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.Single(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.SingleOrDefault(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.First(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.FirstOrDefault(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.Add(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.Remove(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.GetAsync(System.Object,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.GetAllAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.SingleAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.SingleOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.FirstAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.FirstOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.AddAsync(`0,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.RemoveAsync(`0,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.RemoveRangeAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.GetPage(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.GetPage(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.GetPageAsync(System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EntityRepositoryLibrary.Repository`1.GetPageAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>
